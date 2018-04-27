@@ -6,24 +6,11 @@ import random
 # 3,4,5
 # 6,7,8
 
-board = '''    1   2   3
-   ___ ___ ___
-  |   |   |   |
-1 | {} | {} | {} |
-  |___|___|___|
-  |   |   |   |
-2 | {} | {} | {} |
-  |___|___|___|
-  |   |   |   |
-3 | {} | {} | {} |
-  |___|___|___|
-'''
-
 class Location():
     def __init__(self, row, col):
         self.row = row
         self.column = col
-        self.occupied = False 
+        self.occupied = False
         self.character = " "
     
     def place(self, char):
@@ -34,17 +21,18 @@ spaces = [Location(x,y) for x in range(1,4) for y in range(1,4)]
 
 def print_board():
     print("\033[H\033[2J")
-    print(board.format(
-        spaces[0].character,
-        spaces[1].character,
-        spaces[2].character,
-        spaces[3].character,
-        spaces[4].character,
-        spaces[5].character,
-        spaces[6].character,
-        spaces[7].character,
-        spaces[8].character
-    ))
+    print(f'''      1   2   3
+     ___ ___ ___
+    |   |   |   |
+  1 | {spaces[0].character} | {spaces[1].character} | {spaces[2].character} |
+    |___|___|___|
+    |   |   |   |
+  2 | {spaces[3].character} | {spaces[4].character} | {spaces[5].character} |
+    |___|___|___|
+    |   |   |   |
+  3 | {spaces[6].character} | {spaces[7].character} | {spaces[8].character} |
+    |___|___|___|
+    ''')
 
 def check_winner():
 
@@ -166,4 +154,5 @@ def main():
         sl(.5)
         main()
 
-main()
+if __name__ == "__main__":
+    main()
