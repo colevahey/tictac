@@ -46,7 +46,7 @@ def check_winner():
                 exit()
 
     # Check column winner
-    for i in range(0,3):
+    for i in range(3):
         space = spaces[i]
         if space.occupied == True and space.character == spaces[i+3].character and space.character == spaces[i+6].character:
             print_board()
@@ -135,7 +135,6 @@ def single_player(character):
         sl(.5)
         check_winner()
 
-        # Computer random placing
         for space in spaces:
             if not space.occupied:
                 possible_locations.append(space)
